@@ -1,4 +1,4 @@
-README.md
+### Description of the R code for the programming exercise "Data Cleaning"
 ### Downloading datasets
 My first attempts to download X_train.txt into R with read.csv were unsuccessful due to variable number of spaces between records.  Since the file appeared to be in fixed width format and it contains only numbers read.fwf function looked like a good choice. While read.fwf did worked when I tried to read the first 5 lines, but it was incredibly slow. Consequently, I employed scan(). First, only one line was read to determine the number of numeric records per line. 
 a<-scan(file="./UCI HAR Dataset/train/X_train.txt", nlines=1)
@@ -12,10 +12,10 @@ a<-as.data.frame(a)
 
 Files y_train.txt and subject_train.txt were opened using read.csv and attached to the dataset with cbind() command.
 
-#Train y added
+Train y added
 a_y<-read.csv(file="./UCI HAR Dataset/train/y_train.txt",header=F)
 a<-cbind(a,y=a_y$V1)
-#Tran subject added
+Subject column added
 a_s<-read.csv(file="./UCI HAR Dataset/train/subject_train.txt",header=F)
 a<-cbind(a,Subject=a_s$V1)
 
